@@ -1,4 +1,4 @@
-# Sample Javascript Project
+# New England Webpage
 
 Project: States of New England
 Status: Portfolio site / educational demo
