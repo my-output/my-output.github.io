@@ -1,0 +1,71 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>States of New England</title>
+      <link rel="stylesheet" href="../design/style.css" />
+      <!--link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/monterchi-book" type="text/css"/-->
+    </head>
+
+    <body>
+      <header class="hero">
+        <h1 class="site-title">Contact</h1>
+        <nav>
+          <button id="re"><a href="index.html">Home</a></button>
+          <button id="VT"><a>Vermont</a></button> <!--When I press this, Maine should clear, Vermont should show.-->
+          <button id="ME"><a>Maine</a></button> <!--Vice Versa!-->
+          <button id="CT"><a>Connecticut</a></button>
+          <button id="RI"><a>Rhode Island</a></button>
+          <button id="NH" onclick="show('NewHampshire')"><a>New Hampshire</a></button>
+          <button id="MA" onclick="show('Massachussetts')"><a>Massachusetts</a></button> <!--AND MOAR-->
+        </nav>
+      </header>
+      
+      <main>
+        <article>
+            <form id="form">
+                <label>First Name</label> <br>
+                <input value="" type="text" id="fname" autocomplete="off"> <br> <br>
+                <label>Last Name</label><br>
+                <input value="" type="text" id="lname" autocomplete="off"> <br>
+                <input type="submit" value="Submit" id="submit"> <br>
+            </form>
+            <p id="txt"></p>
+        </article>
+      </main>
+      <footer>
+        <p>© 2026 All rights reserved.</p>
+        </aside>
+      </footer>
+
+      <script>
+        const first = document.getElementById('fname');
+        const last = document.getElementById('lname');
+        const form = document.querySelector('form');
+        const submit = document.getElementById('submit');
+        const result = document.getElementById('txt');
+        
+        // Record the each part of the name (force it into string) and add to list
+        function record(firstName, lastName){
+            const name = [String(firstName || ''),String(lastName || '')];
+            return name
+        }
+        function formalize(parts){
+        return parts
+        .map(p => String(p || '').trim())
+        .filter(p => p.length)
+        .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
+        .join(' ');
+        }
+
+        function call(e){
+        e.preventDefault();               // stops the form reset/submit
+        const newName = formalize([first.value, last.value]);
+        result.textContent = 'Thank you, ' + (newName || 'visitor') + '!';
+        console.log('Output:', newName);
+        }
+        form.addEventListener('submit', call)
+      </script>
+    </body>
+</html>

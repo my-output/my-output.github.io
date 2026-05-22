@@ -1,0 +1,31 @@
+form {
+    margin: 3rem;
+}
+#fname, #lname {
+    padding: 0.5rem;
+    border: 0cap;
+    background-color: beige;
+    color: green;
+    font-family: 'Amita', handwriting;
+    transition: background-color 1s;
+} #fname:focus {
+    background-color: rgb(255, 255, 244);
+    color: rgb(5, 73, 5);
+    outline: none;
+}
+
+#lname:focus {
+    background-color: rgb(255, 255, 244);
+    color: rgb(5, 73, 5);
+    outline: none;
+}
+
+#submit {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    outline: none;
+    border: 0cap;
+    background-color: darkkhaki;
+    color: beige;
+    font-family: 'Amita', handwriting;
+}

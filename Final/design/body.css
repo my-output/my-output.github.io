@@ -1,0 +1,55 @@
+@import url(https://fonts.bunny.net/css?family=amita:700);
+
+body {
+    margin: 0%;
+    font-family: 'Amita', handwriting;
+    background-color: rgb(208, 228, 161);
+    color: rgb(70, 116, 90);
+}
+p, h3, h2 {
+    padding: 1rem;
+    padding-top: 0rem;
+    /*font-family: 'MonterchiBook';*/
+}
+p {
+    text-align: center;
+}
+figure {text-align: center;}
+
+#content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+    animation: displayer ease 3s;
+}
+@keyframes displayer {
+    0% { opacity: 0%; transform: translateY(-10%);}
+    /* 100% ... */
+    100% { opacity: 100%; transform: translateY(0%); }
+}
+#section {
+    background-color: lemonchiffon;
+    padding: 4rem;
+    margin: 5%;
+    animation: intro ease 3s;
+}
+
+img {
+    padding: 1rem;
+    border-radius: 2rem;
+    width: 40%;
+    height: 30%;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    padding: 3vh;
+    color: beige;
+}
+
+@keyframes intro {
+    0% { opacity: 0%; transform: translateY(-10%);}
+    100% {opacity: 100%; transform: translateY(10%);}
+}

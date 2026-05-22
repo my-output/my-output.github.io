@@ -1,0 +1,22 @@
+.hero {
+    color: rgb(249, 255, 233);
+    background-color:rgba(209, 143, 0, 0.4);
+    background-image: url('../media/head-image.webp');
+    background-size: cover;
+    background-blend-mode: color-burn;
+    padding: 10rem;
+    text-align: center;
+    transition: color 1s, background-color 3s, padding 2s;
+} .hero:hover {
+    color: beige;
+    background-color: rgba(139, 111, 19, 0.63);
+    padding: 12rem;
+}
+.hero > h1, nav {
+    animation: intro ease-in-out 3s;
+    padding-top: 3vh;
+}
+@keyframes intro {
+    0% { transform: translateY(0%); }
+    100% { transform: translateY(30%); }
+}

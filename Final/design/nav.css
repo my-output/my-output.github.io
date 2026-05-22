@@ -1,0 +1,23 @@
+@import url(https://fonts.bunny.net/css?family=amita:700);
+
+
+button {
+    border: 0cap;
+    margin-right: 5vh;
+    margin-top: 3vh;
+    padding: 1vh;
+    background-color: rgb(128, 150, 78);
+    color: aliceblue;
+    font-family: 'Amita', handwriting;
+    transition: padding 1s, background-color 0.5s;
+} button:hover {
+    padding: 2vh;
+    background-color: cadetblue;
+    color: white;
+}
+aside > a {
+    color: white;
+    transition: all 1s;
+} aside > a:hover {
+    color: cadetblue;
+}

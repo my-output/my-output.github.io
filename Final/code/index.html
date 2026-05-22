@@ -1,0 +1,191 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <title>States of New England</title>
+      <link rel="stylesheet" href="../design/style.css" />
+      <!--link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/monterchi-book" type="text/css"/-->
+    </head>
+
+    <body>
+      <header class="hero">
+        <h1 class="site-title">New England States</h1>
+        <nav>
+          <button id="re"><a href="index.html">Home</a></button>
+          <button id="VT"><a>Vermont</a></button> <!--When I press this, Maine should clear, Vermont should show.-->
+          <button id="ME"><a>Maine</a></button> <!--Vice Versa!-->
+          <button id="CT"><a>Connecticut</a></button>
+          <button id="RI"><a>Rhode Island</a></button>
+          <br><button id="NH" onclick="show('NewHampshire')" style="margin-top: 1.5em;"><a>New Hampshire</a></button>
+          <button id="MA" onclick="show('Massachussetts')"><a>Massachusetts</a></button> <!--AND MOAR-->
+          <button id="formEntry"><a href="form.html">Contact</a></button>
+        </nav>
+      </header>
+      
+      <main>
+        <article>
+          <section id="section" class="card">
+            <h1 id="head"></h1>
+            <p id="content">
+              Welcome to New England! Learn about the different histories, land features facts and more of New England!</p>
+            <figure id="fig"><figcaption id="cap"></figcaption>
+            </figure>
+            <h3 id="sub"></h3>
+            <p id="content2" >
+            </p>
+          </section>
+        </article>
+      </main>
+      <footer>
+        <p>© 2026 All rights reserved.</p>
+      </footer>
+
+      <script>
+        // Cache elements
+        const section = document.getElementById('section');
+        const heading = document.getElementById('head');  
+        const content = document.getElementById('content');
+        const content2 = document.getElementById('content2');
+        const sub = document.getElementById('sub');
+        const fig = document.getElementById('fig');  
+        const cap = document.getElementById('cap');
+        const MA = document.getElementById('MA'); 
+        const ME = document.getElementById('ME');  
+        const VT = document.getElementById('VT');
+        const RI = document.getElementById('RI');
+        const CT = document.getElementById('CT');
+        const NH = document.getElementById('NH');
+        const re = document.getElementById('re'); // Home button
+        elements = [section, heading, content, fig, cap, VT, ME];
+
+        // Store text and images in variables //
+        let maineText = "The first inhabitants of the land now called Maine probably arrived around 12,000 years ago. Over the course of this land’s history, Native American tribes such as the Maliseet, Passamaquoddy, Abenaki, and Penobscot lived on the land. Maine joined the United States as part of Massachusetts. But many Maine settlers wanted to have their own state. In 1820 Maine separated from Massachusetts, becoming the 23rd state in the union. This was done as part of the Missouri Compromise, a deal that admitted Missouri as a state as well. Several Native American tribes still exist in Maine, including descendants of the original Passamaquoddy, Maliseet, and Penobscot tribes. When Europeans began to arrive in the 1600s, they often fought with tribal members over land. Tribes sometimes made treaties with these immigrants to cease fighting, and these agreements moved the Native Americans to land called reservations—but those areas were often far from their original homes. Today many tribal members choose to live on reservations, where they have their own governments and support themselves with businesses such as forestry and blueberry farming. Today, the state covers about 9,616 square miles and has a population around 645,000.";
+        let maineNature = "Maine's natural features include a rugged, rocky Atlantic coastline with sandy beaches, tidal estuaries, and numerous bays and inlets; thousands of offshore islands and sea stacks; dense mixed forests dominated by spruce, fir, pine, and hardwoods; extensive freshwater lakes and ponds (notably Moosehead Lake) and winding rivers such as the Kennebec, Penobscot, and Androscoggin; rolling to mountainous terrain in the interior with the Longfellow Mountains and peaks like Mount Katahdin; abundant wetlands, bogs, and peatlands; rich marine ecosystems supporting lobsters, seabirds, and marine mammals; and a climate-influenced mosaic of coastal marshes and boreal habitats that support diverse wildlife.";
+        let VerText = "Vermont’s land was inhabited for millennia by Indigenous peoples—chiefly Abenaki—before European contact; Samuel de Champlain explored the region in 1609 and the French established the first permanent outpost (Isle La Motte) in 1666. In the 18th century both New Hampshire and New York issued competing land grants, prompting local resistance led by Ethan Allen and the Green Mountain Boys; they captured Fort Ticonderoga in 1775. In 1777, Vermonters declared an independent republic and adopted a constitution.  Vermont was admitted to the United States as the 14th state in 1791. Today, Vermont is about 35,380 in square miles, with a population around 1.34 million.";
+        let VerNature = "Vermont’s natural features include the forested, glaciated Green Mountains running north–south with peaks like Mount Mansfield and Camel’s Hump; rolling Champlain Valley farmland and the shoreline of Lake Champlain; numerous cold-clear rivers and streams (e.g., the Winooski and Ottauquechee) and many small lakes and ponds; extensive maple‑dominated northern hardwood forests mixed with spruce and fir at higher elevations; fertile river valleys and ridgelines with rocky outcrops and talus; diverse wetlands, peatlands, and vernal pools that support amphibians and waterfowl; abundant fall foliage and migratory bird pathways; and recreational landscapes for hiking, skiing, fishing, and paddling."
+        let MAText = "The current governor of Massachusetts is Maura Healey; the state covers about 10,565 square miles, has a population around 7.0 million, and ratified the U.S. Constitution on February 6, 1788. The region was long inhabited by Algonquian-speaking peoples (including the Massachusett, Wampanoag, Nipmuc, and others); their societies, treaties, and interactions with early colonists significantly affected settlement patterns, land dispossession, and the state's development, and Indigenous communities remain active in the state today.";
+        let MANature = "Massachusetts’ natural features range from the Atlantic coastal beaches and salt marshes of Cape Cod to the forested Berkshire Hills and river valleys inland. The state contains coastal dunes, estuaries that support shellfish and migratory birds, oak-hickory forests, and pockets of rare heath and pitch pine–scrub oak barrens; seasonal coastal and upland recreation, whale-watching, and diverse birdlife are prominent.";
+        let riText = "The current governor of Rhode Island is Dan McKee; the state covers about 1,214 square miles, has a population around 1.1 million, and was the last of the original 13 states to ratify the Constitution on May 29, 1790. Long before European colonization the area was inhabited by Algonquian-speaking peoples—primarily the Narragansett and Niantic—whose fishing, seasonal agriculture, and treaty relationships shaped early settlement and land use; their descendants and tribal nations continue to be part of the state’s cultural heritage.";
+        let riNature = "Rhode Island’s nature is characterized by a jagged coastline with bays and inlets, barrier beaches, salt marshes, and numerous coastal estuaries. Despite its small size it supports important shorebird and waterfowl habitat, productive shellfish beds, coastal forests and freshwater ponds, and recreational beaches and boating opportunities.";
+        let CText = "The current governor of Connecticut is Ned Lamont; the state covers about 5,543 square miles, has a population around 3.6 million, and ratified the U.S. Constitution on January 9, 1788. The land was traditionally occupied by several Algonquian-speaking tribes—such as the Pequot, Mohegan, and Nipmuc—whose trade networks, seasonal agriculture, and treaties influenced colonial relations and land tenure; their communities remain active contributors to state history and culture.";
+        let CTNature = "Connecticut’s natural landscape includes coastal estuaries and Long Island Sound shoreline, low rolling hills, river valleys (notably the Connecticut River), mixed hardwood forests, and small lakes and wetlands. The state supports diverse migratory bird pathways, productive estuarine fisheries, and habitats for species like white-tailed deer, bald eagle, and riverine fish.";
+        let NHText = "The current governor of New Hampshire is Chris Sununu; the state covers about 9,349 square miles, has a population around 1.4 million, and was admitted to the Union on June 21, 1788. Indigenous peoples including Abenaki nations inhabited the area for millennia, practicing hunting, fishing, and seasonal movement; their presence, place names, and treaties are integral to the region’s history and cultural landscape.";
+        let NHNature = "New Hampshire’s nature is dominated by the White Mountains (including Mount Washington), extensive northern hardwood and spruce-fir forests, clear lakes and fast-flowing rivers, and rocky Atlantic shoreline. The state is known for alpine and backcountry hiking, winter sports, fall foliage, and wildlife such as moose, black bear, and diverse migratory birds.";
+        // Images
+        let imgList = ['maliseet.jpg', 'Celebration in Maine', 'hagas.webp', 'Gulf Hagas', 'Vermont.jpg', 'Vermont.', 'boston-bridge.jpg', 'Boston Bridge', 'ma-woods.jpg', 'Nature in MA','harvard.jpg', 'Harvard.', 'RIcapital.jpg', 'Rhode Island Capital', 'RICastleHill.jpg', 'Castle Hill.', 'RIocean.jpg', '', 'NH.jpg', '', 'NHNature.jpg', '', 'NHRiver.jpg', '', 'CTCapitol.jpg', 'Capitol.', 'CTForest.jpg', '', 'CTEdwinWay.jpg', 'Edwin Way'];
+
+        // Build objects -- These are different versions of a specific portion of a page based on the state chosen
+        const states = {
+          Maine: {
+            title: "<h1 style='text-align:center;'>Maine</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Janet Mills</h4>", //Display title with sub
+            text: maineText, // general paragraph
+            images: ["<img src= ../media/" + imgList[0] + " alt=" + imgList[1] + " />","<img src= ../media/" + imgList[2] + " alt=" + imgList[3] + " />"], //two images
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:maineNature, // Nature paragraph
+          },
+          Vermont: {
+            title: "<h1 style='text-align:center;'>Vermont</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Phil Scott</h4>",
+            text: VerText,
+            images: "<img src= ../media/" + imgList[4] + " alt=" + imgList[5] + " />",
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:VerNature
+          },
+          Massachussetts: {
+            title: "<h1 style='text-align:center;'>Massachussetts</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Maura Healey</h4>",
+            text: MAText,
+            images: ["<img src= ../media/" + imgList[6] + " alt=" + imgList[7] + " />","<img src= ../media/" + imgList[10] + " alt=" + imgList[11] + " />"],
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:MANature,
+            image2:"<br><img src= ../media/" + imgList[8] + " alt=" + imgList[9] + " /><br>"
+          },
+          RhodeIsland: {
+            title: "<h1 style='text-align:center;'>Rhode Island</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Dan McKee</h4>",
+            text: riText,
+            images: ["<img src= ../media/" + imgList[10] + " alt=" + imgList[11] + " />","<img src= ../media/" + imgList[12] + " alt=" + imgList[13] + " />"],
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:riNature,
+            image2:"<br><img src= ../media/" + imgList[14] + " alt=" + imgList[15] + " /><br>"
+          },
+          NewHampshire: {
+            title: "<h1 style='text-align:center;'>New Hampshire</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Chris Sununu</h4>",
+            text: NHText,
+            images: ["<img src= ../media/" + imgList[16] + " alt=" + imgList[17] + " />","<img src= ../media/" + imgList[18] + " alt=" + imgList[19] + " />"],
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:NHNature,
+            image2:"<br><img src= ../media/" + imgList[20] + " alt=" + imgList[21] + " /><br>"
+          },
+          Connecticut: {
+            title: "<h1 style='text-align:center;'>Connecticut</h1>" + "<br><h4 style='margin-top:-2em; text-align:center;'>Govenor: Ned Lamont</h4>",
+            text: CText,
+            images: ["<img src= ../media/" + imgList[22] + " alt=" + imgList[23] + " />","<img src= ../media/" + imgList[24] + " alt=" + imgList[25] + " />"],
+            caption: "Caption",
+            subtitle: "<h1 style='text-align:center';>Nature</h1>",
+            text2:CTNature,
+            image2:"<br><img src= ../media/" + imgList[26] + " alt=" + imgList[27] + " /><br>"
+          }
+        };
+        
+
+        function show(state){
+          const s = states[state]; // The name of the state inputed when calling the function will search for the equivlent object
+          heading.innerHTML = s.title; // Add each component of the object; This will go into the "heading" id listed within the <article> tag and write in what was listed in the object.
+          content.innerHTML = s.text;
+          fig.innerHTML = ''; //rewrite whatever was inside <figure>
+          fig.innerHTML += s.images; //replace with pictures
+          cap.textContent += s.caption; // Add a caption
+          sub.innerHTML = s.subtitle; // Add another title
+          content2.innerHTML = s.text2; // more content |
+          content2.innerHTML += s.image2; //            v
+        }
+        // EXECUTE CODE ~Through Buttons~
+        // Conneticut
+        CT.addEventListener('click', () => show('Connecticut'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+          });
+        // Rhode
+        RI.addEventListener('click', () => show('RhodeIsland'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+          });
+        // New Hampshire
+        NH.addEventListener('click', () => show('NewHamshire'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+          });
+        // Massachussets
+        MA.addEventListener('click', () => show('Massachussetts'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+          });
+        // Maine
+        ME.addEventListener('click', () => show('Maine'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+          });
+        // Vermont
+        VT.addEventListener('click', () => show('Vermont'), () => {
+          section.classList.remove('intro');
+          section.classList.add('intro');
+        });
+        //Temporary Rest button -- Home?
+        re.addEventListener('click', () => {
+          const clear = [heading, content, fig, cap, sub, content2];
+            
+          for (i=0; i<elements.length; i++){
+            ele = clear[i];
+            if (!ele) continue;
+            ele.textContent = '';
+          }
+          content.textContent += "Welcome to New England! Learn about the different histories, land features facts and more of New England!";
+        })
+        
+       </script>
+    </body>
+</html>
