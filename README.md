@@ -1,9 +1,11 @@
 # New England Webpage
 
-Project: States of New England
-Status: Portfolio site / educational demo
+Title: The States of New England
+Purpose: Site Project / Educational Demo
 
 This is a first attempt in creating a demo website that utilizes a Javascript sequence that replaces content on the screen with each button pressed. With the theme of New England and its history, this site was drafted in a way to practice semantic elements as well as CSS styling. All the content is supplementary information that was drafted from Duck.ai, and is meant primarily for demonstrating the overall look of the website, as well as providing some educational information about New England States.
+
+<img width="1774" height="982" alt="NewEnglandDemo" src="https://github.com/user-attachments/assets/dd8ee770-b6d2-4c26-883e-6e662980af44" />
 
 ## Purpose
 
@@ -27,5 +29,6 @@ This is a first attempt in creating a demo website that utilizes a Javascript se
 
     Clone the repository.
     Open index.html in a browser (static site — no server required).
+    Or, click the website link featured in the description.
     Click each button to swap content; The buttons for the Home and Contact pages will reload the page, whereas the buttons for each state     will change only the main section.
     The Contact page is for demonstration purposes only as of now.
