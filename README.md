@@ -1,6 +1,5 @@
 # New England Webpage
 
-Title: The States of New England
 Purpose: Site Project / Educational Demo
 
 This is a first attempt in creating a demo website that utilizes a Javascript sequence that replaces content on the screen with each button pressed. With the theme of New England and its history, this site was drafted in a way to practice semantic elements as well as CSS styling. All the content is supplementary information that was drafted from Duck.ai, and is meant primarily for demonstrating the overall look of the website, as well as providing some educational information about New England States.
